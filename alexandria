@@ -32,7 +32,7 @@ HEADERS = {
     'Connection': 'keep-alive',
     'Cache-Control': 'max-age=0',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'\
-        'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/10.0.3112.113'\
+        'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113'\
         'Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9'\
         ',*/*;q=0.8',
@@ -348,7 +348,7 @@ def fetch_metadata(isbn, config):
         image_url = upload_image(cover, config)
         description = html_to_bbcode(result['comments'])
         return None
-        '''return {
+        return {
             'title': result['title'],
             'authors': result['authors'].replace(' & ', ', '),
             'publisher': result['publisher'],
@@ -358,7 +358,7 @@ def fetch_metadata(isbn, config):
             'isbn': re.search('isbn:(\d+)', result['identifiers']).group(1),
             'description': description,
             'image': image_url,
-        }'''
+        }
     except:
         return None
 
