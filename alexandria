@@ -300,6 +300,7 @@ def create_tempfile(suffix):
 
 def make_torrent(filename, announce, tracker_name, piece_size=24):
     torrent = create_tempfile('.torrent')
+    time.sleep(300)
     if tracker_name == RED.name:
         command = ['mktorrent', '-p', '-s', tracker_name, '-a', announce, '-l', str(piece_size), '-o', torrent, filename]
     else: # not sure if biblotik needs/wants the source filled in
@@ -347,7 +348,6 @@ def fetch_metadata(isbn, config):
         result = {re.sub('\W', '', key).lower(): value for key, value in parsed}
         image_url = upload_image(cover, config)
         description = html_to_bbcode(result['comments'])
-        return None
         return {
             'title': result['title'],
             'authors': result['authors'].replace(' & ', ', '),
