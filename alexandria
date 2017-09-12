@@ -298,7 +298,7 @@ def determine_format(filename):
 def create_tempfile(suffix):
     return subprocess.check_output(['mktemp', '-u', '--suffix', suffix]).strip()
 
-def make_torrent(filename, announce, tracker_name, piece_size=16):
+def make_torrent(filename, announce, tracker_name, piece_size=24):
     torrent = create_tempfile('.torrent')
     if tracker_name == RED.name:
         command = ['mktorrent', '-p', '-s', tracker_name, '-a', announce, '-l', str(piece_size), '-o', torrent, filename]
