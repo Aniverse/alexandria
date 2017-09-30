@@ -209,7 +209,7 @@ class RED(Tracker):
         r = self.session.get('https://redacted.ch/upload.php')
         f = open('upload.txt','wb')
         f.write(r.text)
-        f.close
+        f.close()
         doc = lxml.html.fromstring(r.text)
         self.authkey = doc.xpath('//*[@id="upload_table"]/div[1]/input[2]')[0].attrib['value']
         self.announce = doc.xpath('//*[@id="content"]/div[2]/p/input')[0].attrib['value']
