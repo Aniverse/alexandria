@@ -6,6 +6,7 @@ been already.
 
 ## Installation
 
+mktorrent => 1.1
 ```
 # apt-get install mktorrent poppler-utils djvulibre-bin calibre
 $ pip install -r requirements.txt
